@@ -1,0 +1,105 @@
+<form id="SessionSubmissionForm" name="SessionSubmissionForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.conference.$invalid}">
+        <label for="conference" class="control-label">Conference</label>
+        <div id="conferenceControls" class="controls">
+        <select id="conference" name="conference" ng-model="conferenceSelection" ng-options="c.text for c in conferenceSelectionList"  >
+            <option value="">Choose a Conference</option>
+        </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.accepted.$invalid}">
+        <label for="accepted" class="control-label">Accepted</label>
+        <div id="acceptedControls" class="controls">
+            <input id="accepted" name="accepted" type="checkbox" ng-model="sessionSubmission.accepted" placeholder="Enter the SessionSubmission Accepted"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.title.$invalid}">
+        <label for="title" class="control-label">Title</label>
+        <div id="titleControls" class="controls">
+            <input id="title" name="title" type="text" required ng-maxlength="512" ng-minlength="5" ng-model="sessionSubmission.title" placeholder="Enter the SessionSubmission Title"></input>
+            <span class="help-inline" ng-show="SessionSubmissionForm.title.$error.required">required</span> 
+            <span class="help-inline" ng-show="SessionSubmissionForm.title.$error.minlength">minimum length is 5</span>
+            <span class="help-inline" ng-show="SessionSubmissionForm.title.$error.maxlength">maximum length is 512</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.description.$invalid}">
+        <label for="description" class="control-label">Description</label>
+        <div id="descriptionControls" class="controls">
+            <input id="description" name="description" type="text" ng-maxlength="2048" ng-model="sessionSubmission.description" placeholder="Enter the SessionSubmission Description"></input>
+            <span class="help-inline" ng-show="SessionSubmissionForm.description.$error.maxlength">maximum length is 2048</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.dateSubmitted.$invalid}">
+        <label for="dateSubmitted" class="control-label">Date Submitted</label>
+        <div id="dateSubmittedControls" class="controls">
+            <input id="dateSubmitted" name="dateSubmitted" type="date" ng-model="sessionSubmission.dateSubmitted" placeholder="Enter the SessionSubmission Date Submitted"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.dateAccepted.$invalid}">
+        <label for="dateAccepted" class="control-label">Date Accepted</label>
+        <div id="dateAcceptedControls" class="controls">
+            <input id="dateAccepted" name="dateAccepted" type="date" ng-model="sessionSubmission.dateAccepted" placeholder="Enter the SessionSubmission Date Accepted"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.dateNotified.$invalid}">
+        <label for="dateNotified" class="control-label">Date Notified</label>
+        <div id="dateNotifiedControls" class="controls">
+            <input id="dateNotified" name="dateNotified" type="date" ng-model="sessionSubmission.dateNotified" placeholder="Enter the SessionSubmission Date Notified"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.track.$invalid}">
+        <label for="track" class="control-label">Track</label>
+        <div id="trackControls" class="controls">
+            <input id="track" name="track" type="text" ng-maxlength="50" ng-model="sessionSubmission.track" placeholder="Enter the SessionSubmission Track"></input>
+            <span class="help-inline" ng-show="SessionSubmissionForm.track.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.notes.$invalid}">
+        <label for="notes" class="control-label">Notes</label>
+        <div id="notesControls" class="controls">
+            <input id="notes" name="notes" type="text" ng-maxlength="2056" ng-model="sessionSubmission.notes" placeholder="Enter the SessionSubmission Notes"></input>
+            <span class="help-inline" ng-show="SessionSubmissionForm.notes.$error.maxlength">maximum length is 2056</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.internalNotes.$invalid}">
+        <label for="internalNotes" class="control-label">Internal Notes</label>
+        <div id="internalNotesControls" class="controls">
+            <input id="internalNotes" name="internalNotes" type="text" ng-maxlength="2056" ng-model="sessionSubmission.internalNotes" placeholder="Enter the SessionSubmission Internal Notes"></input>
+            <span class="help-inline" ng-show="SessionSubmissionForm.internalNotes.$error.maxlength">maximum length is 2056</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.presenter.$invalid}">
+        <label for="presenter" class="control-label">Presenter</label>
+        <div id="presenterControls" class="controls">
+        <select id="presenter" name="presenter" ng-model="presenterSelection" ng-options="p.text for p in presenterSelectionList"  >
+            <option value="">Choose a Presenter</option>
+        </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.coPresenter.$invalid}">
+        <label for="coPresenter" class="control-label">Co Presenter</label>
+        <div id="coPresenterControls" class="controls">
+        <select id="coPresenter" name="coPresenter" ng-model="coPresenterSelection" ng-options="c.text for c in coPresenterSelectionList"  >
+            <option value="">Choose a Co Presenter</option>
+        </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: SessionSubmissionForm.thirdPresenter.$invalid}">
+        <label for="thirdPresenter" class="control-label">Third Presenter</label>
+        <div id="thirdPresenterControls" class="controls">
+        <select id="thirdPresenter" name="thirdPresenter" ng-model="thirdPresenterSelection" ng-options="t.text for t in thirdPresenterSelectionList"  >
+            <option value="">Choose a Third Presenter</option>
+        </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveSessionSubmission" name="saveSessionSubmission" class="btn btn-primary" ng-disabled="isClean() || SessionSubmissionForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteSessionSubmission" name="deleteSessionSubmission" class="btn btn-danger" ng-show="sessionSubmission.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>

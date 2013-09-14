@@ -1,0 +1,197 @@
+package org.jboss.bigcommotion.model;
+
+import javax.persistence.Entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
+
+import java.lang.Override;
+
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.validation.constraints.Size;
+
+@Entity
+@XmlRootElement
+@SuppressWarnings("serial")
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "firstName", "lastName" }))
+public class Presenter implements Serializable
+{
+
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   @Column(name = "id", updatable = false, nullable = false)
+   private Long id = null;
+   @Version
+   @Column(name = "version")
+   private int version = 0;
+
+   @Column(length = 50)
+   @NotNull
+   @Size(min = 2, max = 50, message = "A Speaker's first name must be at least 2 characters and no more than 50.")
+   private String firstName;
+
+   @Column
+   @NotNull
+   @Size(min = 2, max = 50, message = "A Speaker's last name must be at least 2 characters and no more than 50.")
+   private String lastName;
+
+   @Column
+   @Size(max = 1024, message = "A Speaker's bio should not be longer than 1024 characters.")
+   private String biography;
+
+   @Column(length = 50)
+   @Size(max = 50, message = "A Speaker's twitter handle cannot be longer than 50 characters.")
+   private String twitterHandle;
+
+   @Column(length = 512)
+   @Size(max = 512, message = "A Speaker's image URL should not be longer than 512 characters")
+   private String imageUrl;
+
+   @Column(length = 2056)
+   @Size(max = 2056, message = "Notes on a Speaker cannot exceed 2056 characters.")
+   private String notes;
+
+   public Long getId()
+   {
+      return this.id;
+   }
+
+   public void setId(final Long id)
+   {
+      this.id = id;
+   }
+
+   public int getVersion()
+   {
+      return this.version;
+   }
+
+   public void setVersion(final int version)
+   {
+      this.version = version;
+   }
+
+   @Override
+   public boolean equals(Object that)
+   {
+      if (this == that)
+      {
+         return true;
+      }
+      if (that == null)
+      {
+         return false;
+      }
+      if (getClass() != that.getClass())
+      {
+         return false;
+      }
+      if (id != null)
+      {
+         return id.equals(((Presenter) that).id);
+      }
+      return super.equals(that);
+   }
+
+   @Override
+   public int hashCode()
+   {
+      if (id != null)
+      {
+         return id.hashCode();
+      }
+      return super.hashCode();
+   }
+
+   public String getFirstName()
+   {
+      return this.firstName;
+   }
+
+   public void setFirstName(final String firstName)
+   {
+      this.firstName = firstName;
+   }
+
+   public String getLastName()
+   {
+      return this.lastName;
+   }
+
+   public void setLastName(final String lastName)
+   {
+      this.lastName = lastName;
+   }
+
+   public String getBiography()
+   {
+      return this.biography;
+   }
+
+   public void setBiography(final String biography)
+   {
+      this.biography = biography;
+   }
+
+   public String getTwitterHandle()
+   {
+      return this.twitterHandle;
+   }
+
+   public void setTwitterHandle(final String twitterHandle)
+   {
+      this.twitterHandle = twitterHandle;
+   }
+
+   public String getImageUrl()
+   {
+      return this.imageUrl;
+   }
+
+   public void setImageUrl(final String imageUrl)
+   {
+      this.imageUrl = imageUrl;
+   }
+
+   public String getNotes()
+   {
+      return this.notes;
+   }
+
+   public void setNotes(final String notes)
+   {
+      this.notes = notes;
+   }
+
+   public String getFullName()
+   {
+      return lastName + "," + firstName;
+   }
+
+   @Override
+   public String toString()
+   {
+      String result = getClass().getSimpleName() + " ";
+      if (firstName != null && !firstName.trim().isEmpty())
+         result += "firstName: " + firstName;
+      if (lastName != null && !lastName.trim().isEmpty())
+         result += ", lastName: " + lastName;
+      if (biography != null && !biography.trim().isEmpty())
+         result += ", biography: " + biography;
+      if (twitterHandle != null && !twitterHandle.trim().isEmpty())
+         result += ", twitterHandle: " + twitterHandle;
+      if (imageUrl != null && !imageUrl.trim().isEmpty())
+         result += ", imageUrl: " + imageUrl;
+      if (notes != null && !notes.trim().isEmpty())
+         result += ", notes: " + notes;
+      return result;
+   }
+}

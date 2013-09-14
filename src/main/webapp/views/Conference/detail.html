@@ -1,0 +1,188 @@
+<form id="ConferenceForm" name="ConferenceForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.name.$invalid}">
+        <label for="name" class="control-label">Name</label>
+        <div id="nameControls" class="controls">
+            <input id="name" name="name" type="text" required ng-maxlength="256" ng-minlength="5" ng-model="conference.name" placeholder="Enter the Conference Name"></input>
+            <span class="help-inline" ng-show="ConferenceForm.name.$error.required">required</span> 
+            <span class="help-inline" ng-show="ConferenceForm.name.$error.minlength">minimum length is 5</span>
+            <span class="help-inline" ng-show="ConferenceForm.name.$error.maxlength">maximum length is 256</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.beginDate.$invalid}">
+        <label for="beginDate" class="control-label">Begin Date</label>
+        <div id="beginDateControls" class="controls">
+            <input id="beginDate" name="beginDate" type="date" ng-model="conference.beginDate" placeholder="Enter the Conference Begin Date"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.endDate.$invalid}">
+        <label for="endDate" class="control-label">End Date</label>
+        <div id="endDateControls" class="controls">
+            <input id="endDate" name="endDate" type="date" ng-model="conference.endDate" placeholder="Enter the Conference End Date"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.cfpOpenDate.$invalid}">
+        <label for="cfpOpenDate" class="control-label">Cfp Open Date</label>
+        <div id="cfpOpenDateControls" class="controls">
+            <input id="cfpOpenDate" name="cfpOpenDate" type="date" ng-model="conference.cfpOpenDate" placeholder="Enter the Conference Cfp Open Date"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.cfpCloseDate.$invalid}">
+        <label for="cfpCloseDate" class="control-label">Cfp Close Date</label>
+        <div id="cfpCloseDateControls" class="controls">
+            <input id="cfpCloseDate" name="cfpCloseDate" type="date" ng-model="conference.cfpCloseDate" placeholder="Enter the Conference Cfp Close Date"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.url.$invalid}">
+        <label for="url" class="control-label">Url</label>
+        <div id="urlControls" class="controls">
+            <input id="url" name="url" type="text" ng-model="conference.url" placeholder="Enter the Conference Url"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.description.$invalid}">
+        <label for="description" class="control-label">Description</label>
+        <div id="descriptionControls" class="controls">
+            <input id="description" name="description" type="text" ng-maxlength="1000" ng-model="conference.description" placeholder="Enter the Conference Description"></input>
+            <span class="help-inline" ng-show="ConferenceForm.description.$error.maxlength">maximum length is 1000</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.expectedAttendees.$invalid}">
+        <label for="expectedAttendees" class="control-label">Expected Attendees</label>
+        <div id="expectedAttendeesControls" class="controls">
+            <input id="expectedAttendees" name="expectedAttendees" type="number" ng-model="conference.expectedAttendees" placeholder="Enter the Conference Expected Attendees"></input>
+            <span class="help-inline" ng-show="ConferenceForm.expectedAttendees.$error.number">not a number</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.sponsored.$invalid}">
+        <label for="sponsored" class="control-label">Sponsored</label>
+        <div id="sponsoredControls" class="controls">
+            <input id="sponsored" name="sponsored" type="checkbox" ng-model="conference.sponsored" placeholder="Enter the Conference Sponsored"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.booth.$invalid}">
+        <label for="booth" class="control-label">Booth</label>
+        <div id="boothControls" class="controls">
+            <input id="booth" name="booth" type="checkbox" ng-model="conference.booth" placeholder="Enter the Conference Booth"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.numberOfRHSessions.$invalid}">
+        <label for="numberOfRHSessions" class="control-label">Number Of RH Sessions</label>
+        <div id="numberOfRHSessionsControls" class="controls">
+            <input id="numberOfRHSessions" name="numberOfRHSessions" type="number" ng-model="conference.numberOfRHSessions" placeholder="Enter the Conference Number Of RH Sessions"></input>
+            <span class="help-inline" ng-show="ConferenceForm.numberOfRHSessions.$error.number">not a number</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.estimatedCost.$invalid}">
+        <label for="estimatedCost" class="control-label">Estimated Cost</label>
+        <div id="estimatedCostControls" class="controls">
+            <input id="estimatedCost" name="estimatedCost" type="text" ng-model="conference.estimatedCost" placeholder="Enter the Conference Estimated Cost"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.actualCost.$invalid}">
+        <label for="actualCost" class="control-label">Actual Cost</label>
+        <div id="actualCostControls" class="controls">
+            <input id="actualCost" name="actualCost" type="text" ng-model="conference.actualCost" placeholder="Enter the Conference Actual Cost"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.purchaseOrder.$invalid}">
+        <label for="purchaseOrder" class="control-label">Purchase Order</label>
+        <div id="purchaseOrderControls" class="controls">
+            <input id="purchaseOrder" name="purchaseOrder" type="text" ng-model="conference.purchaseOrder" placeholder="Enter the Conference Purchase Order"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.requisitionID.$invalid}">
+        <label for="requisitionID" class="control-label">Requisition ID</label>
+        <div id="requisitionIDControls" class="controls">
+            <input id="requisitionID" name="requisitionID" type="number" ng-model="conference.requisitionID" placeholder="Enter the Conference Requisition ID"></input>
+            <span class="help-inline" ng-show="ConferenceForm.requisitionID.$error.number">not a number</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.transferID.$invalid}">
+        <label for="transferID" class="control-label">Transfer ID</label>
+        <div id="transferIDControls" class="controls">
+            <input id="transferID" name="transferID" type="text" ng-model="conference.transferID" placeholder="Enter the Conference Transfer ID"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.receiptID.$invalid}">
+        <label for="receiptID" class="control-label">Receipt ID</label>
+        <div id="receiptIDControls" class="controls">
+            <input id="receiptID" name="receiptID" type="text" ng-model="conference.receiptID" placeholder="Enter the Conference Receipt ID"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.notes.$invalid}">
+        <label for="notes" class="control-label">Notes</label>
+        <div id="notesControls" class="controls">
+            <input id="notes" name="notes" type="text" ng-maxlength="1024" ng-model="conference.notes" placeholder="Enter the Conference Notes"></input>
+            <span class="help-inline" ng-show="ConferenceForm.notes.$error.maxlength">maximum length is 1024</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.requestedBy.$invalid}">
+        <label for="requestedBy" class="control-label">Requested By</label>
+        <div id="requestedByControls" class="controls">
+            <input id="requestedBy" name="requestedBy" type="text" ng-model="conference.requestedBy" placeholder="Enter the Conference Requested By"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.campaign.$invalid}">
+        <label for="campaign" class="control-label">Campaign</label>
+        <div id="campaignControls" class="controls">
+            <input id="campaign" name="campaign" type="text" ng-model="conference.campaign" placeholder="Enter the Conference Campaign"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.setupTime.$invalid}">
+        <label for="setupTime" class="control-label">Setup Time</label>
+        <div id="setupTimeControls" class="controls">
+            <input id="setupTime" name="setupTime" type="time" ng-model="conference.setupTime" placeholder="Enter the Conference Setup Time"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.dismantleTime.$invalid}">
+        <label for="dismantleTime" class="control-label">Dismantle Time</label>
+        <div id="dismantleTimeControls" class="controls">
+            <input id="dismantleTime" name="dismantleTime" type="time" ng-model="conference.dismantleTime" placeholder="Enter the Conference Dismantle Time"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.eloquaID.$invalid}">
+        <label for="eloquaID" class="control-label">Eloqua ID</label>
+        <div id="eloquaIDControls" class="controls">
+            <input id="eloquaID" name="eloquaID" type="text" ng-model="conference.eloquaID" placeholder="Enter the Conference Eloqua ID"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.sfdcID.$invalid}">
+        <label for="sfdcID" class="control-label">Sfdc ID</label>
+        <div id="sfdcIDControls" class="controls">
+            <input id="sfdcID" name="sfdcID" type="text" ng-model="conference.sfdcID" placeholder="Enter the Conference Sfdc ID"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.sessionSubmissions.$invalid}">
+        <label for="sessionSubmissions" class="control-label">Session Submissions</label>
+        <div id="sessionSubmissionsControls" class="controls">
+            <select id="sessionSubmissions" name="sessionSubmissions" multiple ng-model="sessionSubmissionsSelection" ng-options="s.text for s in sessionSubmissionsSelectionList">
+                <option value="">Choose a Session Submissions</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.vendorPointOfContact.$invalid}">
+        <label for="vendorPointOfContact" class="control-label">Vendor Point Of Contact</label>
+        <div id="vendorPointOfContactControls" class="controls">
+            <select id="vendorPointOfContact" name="vendorPointOfContact" multiple ng-model="vendorPointOfContactSelection" ng-options="v.text for v in vendorPointOfContactSelectionList">
+                <option value="">Choose a Vendor Point Of Contact</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: ConferenceForm.staff.$invalid}">
+        <label for="staff" class="control-label">Staff</label>
+        <div id="staffControls" class="controls">
+            <select id="staff" name="staff" multiple ng-model="staffSelection" ng-options="s.text for s in staffSelectionList">
+                <option value="">Choose a Staff</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveConference" name="saveConference" class="btn btn-primary" ng-disabled="isClean() || ConferenceForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteConference" name="deleteConference" class="btn btn-danger" ng-show="conference.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>

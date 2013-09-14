@@ -1,0 +1,146 @@
+<h2>Search for SessionSubmissions</h2>
+<form id="SessionSubmissionSearch" class="form-horizontal">
+    <div class="control-group">
+        <label for="conference" class="control-label">Conference</label>
+        <div class="controls">
+            <select id="conference" name="conference" ng-model="search.conference" ng-options="c as c.name for c in conferenceList">
+                <option value="">Choose a Conference</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="accepted" class="control-label">Accepted</label>
+        <div class="controls">
+            <input id="accepted" name="accepted" type="text" ng-model="search.accepted" placeholder="Enter the SessionSubmission Accepted"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="title" class="control-label">Title</label>
+        <div class="controls">
+            <input id="title" name="title" type="text" ng-model="search.title" placeholder="Enter the SessionSubmission Title"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="description" class="control-label">Description</label>
+        <div class="controls">
+            <input id="description" name="description" type="text" ng-model="search.description" placeholder="Enter the SessionSubmission Description"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="dateSubmitted" class="control-label">Date Submitted</label>
+        <div class="controls">
+            <input id="dateSubmitted" name="dateSubmitted" type="text" ng-model="search.dateSubmitted" placeholder="Enter the SessionSubmission Date Submitted"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="dateAccepted" class="control-label">Date Accepted</label>
+        <div class="controls">
+            <input id="dateAccepted" name="dateAccepted" type="text" ng-model="search.dateAccepted" placeholder="Enter the SessionSubmission Date Accepted"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="dateNotified" class="control-label">Date Notified</label>
+        <div class="controls">
+            <input id="dateNotified" name="dateNotified" type="text" ng-model="search.dateNotified" placeholder="Enter the SessionSubmission Date Notified"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="track" class="control-label">Track</label>
+        <div class="controls">
+            <input id="track" name="track" type="text" ng-model="search.track" placeholder="Enter the SessionSubmission Track"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="notes" class="control-label">Notes</label>
+        <div class="controls">
+            <input id="notes" name="notes" type="text" ng-model="search.notes" placeholder="Enter the SessionSubmission Notes"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="internalNotes" class="control-label">Internal Notes</label>
+        <div class="controls">
+            <input id="internalNotes" name="internalNotes" type="text" ng-model="search.internalNotes" placeholder="Enter the SessionSubmission Internal Notes"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="presenter" class="control-label">Presenter</label>
+        <div class="controls">
+            <select id="presenter" name="presenter" ng-model="search.presenter" ng-options="p as p.fullName for p in presenterList">
+                <option value="">Choose a Presenter</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="coPresenter" class="control-label">Co Presenter</label>
+        <div class="controls">
+            <select id="coPresenter" name="coPresenter" ng-model="search.coPresenter" ng-options="c as c.fullName for c in coPresenterList">
+                <option value="">Choose a Co Presenter</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="thirdPresenter" class="control-label">Third Presenter</label>
+        <div class="controls">
+            <select id="thirdPresenter" name="thirdPresenter" ng-model="search.thirdPresenter" ng-options="t as t.fullName for t in thirdPresenterList">
+                <option value="">Choose a Third Presenter</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><i class="icon-search icon-white"></i> Search</a>
+            <a id="Create" name="Create" class="btn" href="#/SessionSubmissions/new"><i class="icon-plus-sign"></i> Create New</a>
+        </div>
+    </div>
+</form>
+<div id="search-results">
+    <table class="table table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th>Conference</th>
+                <th>Accepted</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date Submitted</th>
+                <th>Date Accepted</th>
+                <th>Date Notified</th>
+                <th>Track</th>
+                <th>Notes</th>
+                <th>Internal Notes</th>
+                <th>Presenter</th>
+                <th>Co Presenter</th>
+                <th>Third Presenter</th>
+            </tr>
+        </thead>
+        <tbody id="search-results-body">
+            <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.conference.name}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.accepted}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.title}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.description}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.dateSubmitted}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.dateAccepted}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.dateNotified}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.track}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.notes}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.internalNotes}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.presenter.fullName}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.coPresenter.fullName}}</a></td>
+                <td><a href="#/SessionSubmissions/edit/{{result.id}}">{{result.thirdPresenter.fullName}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <li ng-class="{disabled:currentPage == 0}">
+                <a id="prev" href ng-click="previous()">??</a>
+            </li>
+            <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+                <a id="next" href ng-click="next()">??</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<form id="PresenterForm" name="PresenterForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.firstName.$invalid}">
+        <label for="firstName" class="control-label">First Name</label>
+        <div id="firstNameControls" class="controls">
+            <input id="firstName" name="firstName" type="text" required ng-maxlength="50" ng-minlength="2" ng-model="presenter.firstName" placeholder="Enter the Presenter First Name"></input>
+            <span class="help-inline" ng-show="PresenterForm.firstName.$error.required">required</span> 
+            <span class="help-inline" ng-show="PresenterForm.firstName.$error.minlength">minimum length is 2</span>
+            <span class="help-inline" ng-show="PresenterForm.firstName.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.lastName.$invalid}">
+        <label for="lastName" class="control-label">Last Name</label>
+        <div id="lastNameControls" class="controls">
+            <input id="lastName" name="lastName" type="text" required ng-maxlength="50" ng-minlength="2" ng-model="presenter.lastName" placeholder="Enter the Presenter Last Name"></input>
+            <span class="help-inline" ng-show="PresenterForm.lastName.$error.required">required</span> 
+            <span class="help-inline" ng-show="PresenterForm.lastName.$error.minlength">minimum length is 2</span>
+            <span class="help-inline" ng-show="PresenterForm.lastName.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.biography.$invalid}">
+        <label for="biography" class="control-label">Biography</label>
+        <div id="biographyControls" class="controls">
+            <input id="biography" name="biography" type="text" ng-maxlength="1024" ng-model="presenter.biography" placeholder="Enter the Presenter Biography"></input>
+            <span class="help-inline" ng-show="PresenterForm.biography.$error.maxlength">maximum length is 1024</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.twitterHandle.$invalid}">
+        <label for="twitterHandle" class="control-label">Twitter Handle</label>
+        <div id="twitterHandleControls" class="controls">
+            <input id="twitterHandle" name="twitterHandle" type="text" ng-maxlength="50" ng-model="presenter.twitterHandle" placeholder="Enter the Presenter Twitter Handle"></input>
+            <span class="help-inline" ng-show="PresenterForm.twitterHandle.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.imageUrl.$invalid}">
+        <label for="imageUrl" class="control-label">Image Url</label>
+        <div id="imageUrlControls" class="controls">
+            <input id="imageUrl" name="imageUrl" type="text" ng-maxlength="512" ng-model="presenter.imageUrl" placeholder="Enter the Presenter Image Url"></input>
+            <span class="help-inline" ng-show="PresenterForm.imageUrl.$error.maxlength">maximum length is 512</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.notes.$invalid}">
+        <label for="notes" class="control-label">Notes</label>
+        <div id="notesControls" class="controls">
+            <input id="notes" name="notes" type="text" ng-maxlength="2056" ng-model="presenter.notes" placeholder="Enter the Presenter Notes"></input>
+            <span class="help-inline" ng-show="PresenterForm.notes.$error.maxlength">maximum length is 2056</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PresenterForm.fullName.$invalid}">
+        <label for="fullName" class="control-label">Full Name</label>
+        <div id="fullNameControls" class="controls">
+            <input id="fullName" name="fullName" type="text" ng-model="presenter.fullName" placeholder="Enter the Presenter Full Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="savePresenter" name="savePresenter" class="btn btn-primary" ng-disabled="isClean() || PresenterForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deletePresenter" name="deletePresenter" class="btn btn-danger" ng-show="presenter.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>

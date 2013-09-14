@@ -1,0 +1,116 @@
+<h2>Search for Assets</h2>
+<form id="AssetSearch" class="form-horizontal">
+    <div class="control-group">
+        <label for="name" class="control-label">Name</label>
+        <div class="controls">
+            <input id="name" name="name" type="text" ng-model="search.name" placeholder="Enter the Asset Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="existsToday" class="control-label">Exists Today</label>
+        <div class="controls">
+            <input id="existsToday" name="existsToday" type="text" ng-model="search.existsToday" placeholder="Enter the Asset Exists Today"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="url" class="control-label">Url</label>
+        <div class="controls">
+            <input id="url" name="url" type="text" ng-model="search.url" placeholder="Enter the Asset Url"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="owner" class="control-label">Owner</label>
+        <div class="controls">
+            <input id="owner" name="owner" type="text" ng-model="search.owner" placeholder="Enter the Asset Owner"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="frequencyOfUpdates" class="control-label">Frequency Of Updates</label>
+        <div class="controls">
+            <select id="frequencyOfUpdates" name="frequencyOfUpdates" ng-model="search.frequencyOfUpdates" ng-options="f as f for f in frequencyOfUpdatesList">
+                <option value="">Choose a Frequency Of Updates</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="description" class="control-label">Description</label>
+        <div class="controls">
+            <input id="description" name="description" type="text" ng-model="search.description" placeholder="Enter the Asset Description"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="callToAction" class="control-label">Call To Action</label>
+        <div class="controls">
+            <input id="callToAction" name="callToAction" type="text" ng-model="search.callToAction" placeholder="Enter the Asset Call To Action"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="callToAction2" class="control-label">Call To Action 2</label>
+        <div class="controls">
+            <input id="callToAction2" name="callToAction2" type="text" ng-model="search.callToAction2" placeholder="Enter the Asset Call To Action 2"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="callToAction3" class="control-label">Call To Action 3</label>
+        <div class="controls">
+            <input id="callToAction3" name="callToAction3" type="text" ng-model="search.callToAction3" placeholder="Enter the Asset Call To Action 3"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="note" class="control-label">Note</label>
+        <div class="controls">
+            <input id="note" name="note" type="text" ng-model="search.note" placeholder="Enter the Asset Note"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><i class="icon-search icon-white"></i> Search</a>
+            <a id="Create" name="Create" class="btn" href="#/Assets/new"><i class="icon-plus-sign"></i> Create New</a>
+        </div>
+    </div>
+</form>
+<div id="search-results">
+    <table class="table table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Exists Today</th>
+                <th>Url</th>
+                <th>Owner</th>
+                <th>Frequency Of Updates</th>
+                <th>Description</th>
+                <th>Call To Action</th>
+                <th>Call To Action 2</th>
+                <th>Call To Action 3</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody id="search-results-body">
+            <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.name}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.existsToday}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.url}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.owner}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.frequencyOfUpdates}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.description}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.callToAction}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.callToAction2}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.callToAction3}}</a></td>
+                <td><a href="#/Assets/edit/{{result.id}}">{{result.note}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <li ng-class="{disabled:currentPage == 0}">
+                <a id="prev" href ng-click="previous()">??</a>
+            </li>
+            <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+                <a id="next" href ng-click="next()">??</a>
+            </li>
+        </ul>
+    </div>
+</div>
