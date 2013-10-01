@@ -1,7 +1,9 @@
 'use strict';
 
+
+
 angular.module('bigCommotion',['ngResource'])
-  .config(['$routeProvider', function($routeProvider) {
+   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/Assets',{templateUrl:'views/Asset/search.html',controller:'SearchAssetController'})
       .when('/Assets/new',{templateUrl:'views/Asset/detail.html',controller:'NewAssetController'})

@@ -1,148 +1,172 @@
 <h2>Search for Conferences</h2>
+<tabset>
+	<tab heading="A">Some A content</tab>
+	<tab heading="B">Some B content</tab>
+	<tab heading="C">Some C content</tab>
+	<tab>
+		<tab-heading>D</tab-heading>
+		Some D Content
+	</tab>
+</tabset>
+
+<div id="confSearchTabContent" class="tab-content">
+	<div class="tab-pane fade" id="home">
+		<p>"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+		</p>
+	</div>
+	<div class="tab-pane fade" id="Conferences#profile">
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+   </div>
+</div>
 <form id="ConferenceSearch" class="form-horizontal">
+<div>
     <div class="control-group">
         <label for="name" class="control-label">Name</label>
         <div class="controls">
-            <input id="name" name="name" type="text" ng-model="search.name" placeholder="Enter the Conference Name"></input>
+            <input id="name" name="name" type="text" ng-model="search.name" placeholder="Enter the Conference Name"/>
         </div>
     </div>
     <div class="control-group">
         <label for="beginDate" class="control-label">Begin Date</label>
         <div class="controls">
-            <input id="beginDate" name="beginDate" type="text" ng-model="search.beginDate" placeholder="Enter the Conference Begin Date"></input>
+            <input id="beginDate" name="beginDate" type="date" ng-model="search.beginDate" placeholder="Enter the Conference Begin Date"/>
         </div>
     </div>
     <div class="control-group">
         <label for="endDate" class="control-label">End Date</label>
         <div class="controls">
-            <input id="endDate" name="endDate" type="text" ng-model="search.endDate" placeholder="Enter the Conference End Date"></input>
+            <input id="endDate" name="endDate" type="date" ng-model="search.endDate" placeholder="Enter the Conference End Date"/>
         </div>
     </div>
     <div class="control-group">
         <label for="cfpOpenDate" class="control-label">Cfp Open Date</label>
         <div class="controls">
-            <input id="cfpOpenDate" name="cfpOpenDate" type="text" ng-model="search.cfpOpenDate" placeholder="Enter the Conference Cfp Open Date"></input>
+            <input id="cfpOpenDate" name="cfpOpenDate" type="date" ng-model="search.cfpOpenDate" placeholder="Enter the Conference Cfp Open Date"/>
         </div>
     </div>
     <div class="control-group">
         <label for="cfpCloseDate" class="control-label">Cfp Close Date</label>
         <div class="controls">
-            <input id="cfpCloseDate" name="cfpCloseDate" type="text" ng-model="search.cfpCloseDate" placeholder="Enter the Conference Cfp Close Date"></input>
+            <input id="cfpCloseDate" name="cfpCloseDate" type="date" ng-model="search.cfpCloseDate" placeholder="Enter the Conference Cfp Close Date"/>
         </div>
     </div>
     <div class="control-group">
         <label for="url" class="control-label">Url</label>
         <div class="controls">
-            <input id="url" name="url" type="text" ng-model="search.url" placeholder="Enter the Conference Url"></input>
+            <input id="url" name="url" type="text" ng-model="search.url" placeholder="Enter the Conference Url"/>
         </div>
     </div>
     <div class="control-group">
         <label for="description" class="control-label">Description</label>
         <div class="controls">
-            <input id="description" name="description" type="text" ng-model="search.description" placeholder="Enter the Conference Description"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="expectedAttendees" class="control-label">Expected Attendees</label>
-        <div class="controls">
-            <input id="expectedAttendees" name="expectedAttendees" type="text" ng-model="search.expectedAttendees" placeholder="Enter the Conference Expected Attendees"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="sponsored" class="control-label">Sponsored</label>
-        <div class="controls">
-            <input id="sponsored" name="sponsored" type="text" ng-model="search.sponsored" placeholder="Enter the Conference Sponsored"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="booth" class="control-label">Booth</label>
-        <div class="controls">
-            <input id="booth" name="booth" type="text" ng-model="search.booth" placeholder="Enter the Conference Booth"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="numberOfRHSessions" class="control-label">Number Of RH Sessions</label>
-        <div class="controls">
-            <input id="numberOfRHSessions" name="numberOfRHSessions" type="text" ng-model="search.numberOfRHSessions" placeholder="Enter the Conference Number Of RH Sessions"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="estimatedCost" class="control-label">Estimated Cost</label>
-        <div class="controls">
-            <input id="estimatedCost" name="estimatedCost" type="text" ng-model="search.estimatedCost" placeholder="Enter the Conference Estimated Cost"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="actualCost" class="control-label">Actual Cost</label>
-        <div class="controls">
-            <input id="actualCost" name="actualCost" type="text" ng-model="search.actualCost" placeholder="Enter the Conference Actual Cost"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="purchaseOrder" class="control-label">Purchase Order</label>
-        <div class="controls">
-            <input id="purchaseOrder" name="purchaseOrder" type="text" ng-model="search.purchaseOrder" placeholder="Enter the Conference Purchase Order"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="requisitionID" class="control-label">Requisition ID</label>
-        <div class="controls">
-            <input id="requisitionID" name="requisitionID" type="text" ng-model="search.requisitionID" placeholder="Enter the Conference Requisition ID"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="transferID" class="control-label">Transfer ID</label>
-        <div class="controls">
-            <input id="transferID" name="transferID" type="text" ng-model="search.transferID" placeholder="Enter the Conference Transfer ID"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="receiptID" class="control-label">Receipt ID</label>
-        <div class="controls">
-            <input id="receiptID" name="receiptID" type="text" ng-model="search.receiptID" placeholder="Enter the Conference Receipt ID"></input>
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="notes" class="control-label">Notes</label>
-        <div class="controls">
-            <input id="notes" name="notes" type="text" ng-model="search.notes" placeholder="Enter the Conference Notes"></input>
+            <textarea id="description" name="description" rows="3" ng-model="search.description" placeholder="Enter the Conference Description"/>
         </div>
     </div>
     <div class="control-group">
         <label for="requestedBy" class="control-label">Requested By</label>
         <div class="controls">
-            <input id="requestedBy" name="requestedBy" type="text" ng-model="search.requestedBy" placeholder="Enter the Conference Requested By"></input>
+            <input id="requestedBy" name="requestedBy" type="text" ng-model="search.requestedBy" placeholder="Enter the Conference Requested By"/>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label for="expectedAttendees" class="control-label">Expected Attendees</label>
+        <div class="controls">
+            <input id="expectedAttendees" name="expectedAttendees" type="text" ng-model="search.expectedAttendees" placeholder="Enter the Conference Expected Attendees"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="sponsored" class="control-label">Sponsored</label>
+        <div class="controls">
+            <input id="sponsored" name="sponsored" type="checkbox" ng-model="search.sponsored" placeholder="Enter the Conference Sponsored"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="booth" class="control-label">Booth</label>
+        <div class="controls">
+            <input id="booth" name="booth" type="checkbox" ng-model="search.booth" placeholder="Enter the Conference Booth"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="numberOfRHSessions" class="control-label">Number Of RH Sessions</label>
+        <div class="controls">
+            <input id="numberOfRHSessions" name="numberOfRHSessions" type="text" ng-model="search.numberOfRHSessions" placeholder="Enter the Conference Number Of RH Sessions"/>
+        </div>
+    </div>
+    </div>
+    <div>
+    <div class="control-group">
+        <label for="estimatedCost" class="control-label">Estimated Cost</label>
+        <div class="controls">
+            <input id="estimatedCost" name="estimatedCost" type="number" ng-model="search.estimatedCost" placeholder="Enter the Conference Estimated Cost"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="actualCost" class="control-label">Actual Cost</label>
+        <div class="controls">
+            <input id="actualCost" name="actualCost" type="number" ng-model="search.actualCost" placeholder="Enter the Conference Actual Cost"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="purchaseOrder" class="control-label">Purchase Order</label>
+        <div class="controls">
+            <input id="purchaseOrder" name="purchaseOrder" type="text" ng-model="search.purchaseOrder" placeholder="Enter the Conference Purchase Order"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="requisitionID" class="control-label">Requisition ID</label>
+        <div class="controls">
+            <input id="requisitionID" name="requisitionID" type="text" ng-model="search.requisitionID" placeholder="Enter the Conference Requisition ID"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="transferID" class="control-label">Transfer ID</label>
+        <div class="controls">
+            <input id="transferID" name="transferID" type="text" ng-model="search.transferID" placeholder="Enter the Conference Transfer ID" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="receiptID" class="control-label">Receipt ID</label>
+        <div class="controls">
+            <input id="receiptID" name="receiptID" type="text" ng-model="search.receiptID" placeholder="Enter the Conference Receipt ID" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="notes" class="control-label">Notes</label>
+        <div class="controls">
+            <textarea id="notes" name="notes" rows="2" ng-model="search.notes" placeholder="Enter the Conference Notes"/>
         </div>
     </div>
     <div class="control-group">
         <label for="campaign" class="control-label">Campaign</label>
         <div class="controls">
-            <input id="campaign" name="campaign" type="text" ng-model="search.campaign" placeholder="Enter the Conference Campaign"></input>
+            <input id="campaign" name="campaign" type="text" ng-model="search.campaign" placeholder="Enter the Conference Campaign" />
         </div>
     </div>
     <div class="control-group">
         <label for="setupTime" class="control-label">Setup Time</label>
         <div class="controls">
-            <input id="setupTime" name="setupTime" type="text" ng-model="search.setupTime" placeholder="Enter the Conference Setup Time"></input>
+            <input id="setupTime" name="setupTime" type="datetime" ng-model="search.setupTime" placeholder="Enter the Conference Setup Time" />
         </div>
     </div>
     <div class="control-group">
         <label for="dismantleTime" class="control-label">Dismantle Time</label>
         <div class="controls">
-            <input id="dismantleTime" name="dismantleTime" type="text" ng-model="search.dismantleTime" placeholder="Enter the Conference Dismantle Time"></input>
+            <input id="dismantleTime" name="dismantleTime" type="datetime" ng-model="search.dismantleTime" placeholder="Enter the Conference Dismantle Time" />
         </div>
     </div>
     <div class="control-group">
         <label for="eloquaID" class="control-label">Eloqua ID</label>
         <div class="controls">
-            <input id="eloquaID" name="eloquaID" type="text" ng-model="search.eloquaID" placeholder="Enter the Conference Eloqua ID"></input>
+            <input id="eloquaID" name="eloquaID" type="text" ng-model="search.eloquaID" placeholder="Enter the Conference Eloqua ID" />
         </div>
     </div>
     <div class="control-group">
-        <label for="sfdcID" class="control-label">Sfdc ID</label>
+        <label for="sfdcID" class="control-label">SFDC ID</label>
         <div class="controls">
-            <input id="sfdcID" name="sfdcID" type="text" ng-model="search.sfdcID" placeholder="Enter the Conference Sfdc ID"></input>
+            <input id="sfdcID" name="sfdcID" type="text" ng-model="search.sfdcID" placeholder="Enter the Conference Sfdc ID" />
         </div>
+    </div>
     </div>
     <div class="control-group">
         <div class="controls">
@@ -152,7 +176,7 @@
     </div>
 </form>
 <div id="search-results">
-    <table class="table table-bordered table-striped clearfix">
+    <table class="table table-bordered table-striped table-hover clearfix">
         <thead>
             <tr>
                 <th>Name</th>
@@ -213,13 +237,13 @@
     <div class="pagination pagination-centered">
         <ul>
             <li ng-class="{disabled:currentPage == 0}">
-                <a id="prev" href ng-click="previous()">??</a>
+                <a id="prev" href ng-click="previous()">&laquo;</a>
             </li>
             <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
                 <a href ng-bind="n + 1">1</a>
             </li>
             <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
-                <a id="next" href ng-click="next()">??</a>
+                <a id="next" href ng-click="next()">&raquo;</a>
             </li>
         </ul>
     </div>

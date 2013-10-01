@@ -1,4 +1,7 @@
+.idea
+*.iml
 .classpath
+backup
 .forge_settings
 .project
 .settings

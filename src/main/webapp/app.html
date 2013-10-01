@@ -7,6 +7,10 @@
     <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
     <link href="styles/main.css" rel="stylesheet" media="screen">
     <link href="styles/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+ 	<script src="scripts/vendor/angular.js"></script>
+    <script src="scripts/vendor/angular-resource.js"></script>
+    <script src="scripts/vendor/ui-bootstrap-tpls-0.6.0.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -22,15 +26,15 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span3">
-                    <img class="hidden-phone" src="img/forge-logo.png" alt="JBoss Forge"></img>
+                    <img class="hidden-phone" src="img/megaphone2.png" alt="BigCommotion Logo" style="margin: 1em"/>
                     <nav class="well sidebar-nav" ng-controller="NavController">
                         <ul id="sidebar-entries" class="nav nav-list">
                         	<li ng-class="{active: matchesRoute('Assets')}"><a href="#/Assets">Assets</a></li>
                         	<li ng-class="{active: matchesRoute('Conferences')}"><a href="#/Conferences">Conferences</a></li>
-                        	<li ng-class="{active: matchesRoute('PointOfContacts')}"><a href="#/PointOfContacts">PointOfContacts</a></li>
+                        	<li ng-class="{active: matchesRoute('PointOfContacts')}"><a href="#/PointOfContacts">Contacts</a></li>
                         	<li ng-class="{active: matchesRoute('Presenters')}"><a href="#/Presenters">Presenters</a></li>
-                        	<li ng-class="{active: matchesRoute('SessionSubmissions')}"><a href="#/SessionSubmissions">SessionSubmissions</a></li>
-                        	<li ng-class="{active: matchesRoute('UserGroups')}"><a href="#/UserGroups">UserGroups</a></li>
+                        	<li ng-class="{active: matchesRoute('SessionSubmissions')}"><a href="#/SessionSubmissions">Session Submissions</a></li>
+                        	<li ng-class="{active: matchesRoute('UserGroups')}"><a href="#/UserGroups">User Groups</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -49,10 +53,9 @@
             <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
         </div>
     </div>
-    
+
     <script src="scripts/vendor/jquery-1.9.1.js"></script>
-    <script src="scripts/vendor/angular.js"></script>
-    <script src="scripts/vendor/angular-resource.js"></script>
+  
     <script src="scripts/app.js"></script>
     <script src="scripts/filters/startFromFilter.js"></script>
     <script src="scripts/filters/genericSearchFilter.js"></script>
@@ -81,5 +84,6 @@
     <script src="scripts/controllers/newUserGroupController.js"></script>
     <script src="scripts/controllers/searchUserGroupController.js"></script>
     <script src="scripts/controllers/editUserGroupController.js"></script>
+
 </body>
 </html>
