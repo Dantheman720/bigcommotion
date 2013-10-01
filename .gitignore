@@ -8,3 +8,5 @@ backup
 *.swp
 target
 src/main/webapp/.idea
+workspace.xml
+vcs.xml
