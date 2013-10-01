@@ -7,3 +7,4 @@ backup
 .settings
 *.swp
 target
+src/main/webapp/.idea
