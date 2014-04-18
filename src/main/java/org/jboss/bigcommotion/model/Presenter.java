@@ -1,20 +1,19 @@
-
 /*
-* JBoss, Home of Professional Open Source
-* Copyright 2009, Red Hat, Inc. and/or its affiliates, and individual contributors
-* by the @authors tag. See the copyright.txt in the distribution for a
-* full listing of individual contributors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-* http://www.apache.org/licenses/LICENSE-2.0
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * JBoss, Home of Professional Open Source
+ * Copyright 2009, Red Hat, Inc. and/or its affiliates, and individual contributors
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jboss.bigcommotion.model;
 
 import javax.persistence.Entity;
@@ -75,6 +74,22 @@ public class Presenter implements Serializable
    @Column(length = 2056)
    @Size(max = 2056, message = "Notes on a Speaker cannot exceed 2056 characters.")
    private String notes;
+
+   @Column(length = 512)
+   @Size(max= 512, "Title really has to be less than 512 characters.")
+   private String title;
+
+   @Column(length = 512)
+   private String googlePlus;
+
+   @Column(length = 512)
+   private String linkedIn;
+
+   @Column(length = 512)
+   private String githubId;
+
+   @Column(length = 512)
+   private String facebookUrl;
 
    public Long getId()
    {
@@ -193,6 +208,56 @@ public class Presenter implements Serializable
       return lastName + "," + firstName;
    }
 
+   public String getTitle()
+   {
+      return this.title;
+   }
+
+   public void setTitle(final String title)
+   {
+      this.title = title;
+   }
+
+   public String getGooglePlus()
+   {
+      return this.googlePlus;
+   }
+
+   public void setGooglePlus(final String googlePlus)
+   {
+      this.googlePlus = googlePlus;
+   }
+
+   public String getLinkedIn()
+   {
+      return this.linkedIn;
+   }
+
+   public void setLinkedIn(final String linkedIn)
+   {
+      this.linkedIn = linkedIn;
+   }
+
+   public String getGithubId()
+   {
+      return this.githubId;
+   }
+
+   public void setGithubId(final String githubId)
+   {
+      this.githubId = githubId;
+   }
+
+   public String getFacebookUrl()
+   {
+      return this.facebookUrl;
+   }
+
+   public void setFacebookUrl(final String facebookUrl)
+   {
+      this.facebookUrl = facebookUrl;
+   }
+
    @Override
    public String toString()
    {
@@ -209,6 +274,16 @@ public class Presenter implements Serializable
          result += ", imageUrl: " + imageUrl;
       if (notes != null && !notes.trim().isEmpty())
          result += ", notes: " + notes;
+      if (title != null && !title.trim().isEmpty())
+         result += ", title: " + title;
+      if (googlePlus != null && !googlePlus.trim().isEmpty())
+         result += ", googlePlus: " + googlePlus;
+      if (linkedIn != null && !linkedIn.trim().isEmpty())
+         result += ", linkedIn: " + linkedIn;
+      if (githubId != null && !githubId.trim().isEmpty())
+         result += ", githubId: " + githubId;
+      if (facebookUrl != null && !facebookUrl.trim().isEmpty())
+         result += ", facebookUrl: " + facebookUrl;
       return result;
    }
 }
