@@ -7,10 +7,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import org.jboss.bigcommotion.model.Asset;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 /**
  * 
@@ -23,7 +25,7 @@ public class AssetEndpoint
    private EntityManager em;
 
    @POST
-   @Consumes("application/json")
+   @Consumes(APPLICATION_JSON)
    public Response create(Asset entity)
    {
       em.persist(entity);
@@ -45,7 +47,7 @@ public class AssetEndpoint
 
    @GET
    @Path("/{id:[0-9][0-9]*}")
-   @Produces("application/json")
+   @Produces(APPLICATION_JSON)
    public Response findById(@PathParam("id") Long id)
    {
       TypedQuery<Asset> findByIdQuery = em.createQuery("SELECT a FROM Asset a WHERE a.id = :entityId", Asset.class);
@@ -59,7 +61,7 @@ public class AssetEndpoint
    }
 
    @GET
-   @Produces("application/json")
+   @Produces(APPLICATION_JSON)
    public List<Asset> listAll()
    {
       final List<Asset> results = em.createQuery("SELECT a FROM Asset a", Asset.class).getResultList();
@@ -68,7 +70,7 @@ public class AssetEndpoint
 
    @PUT
    @Path("/{id:[0-9][0-9]*}")
-   @Consumes("application/json")
+   @Consumes(APPLICATION_JSON)
    public Response update(@PathParam("id") Long id, Asset entity)
    {
       entity.setId(id);

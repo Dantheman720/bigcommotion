@@ -1,0 +1,11 @@
+import java.lang.String
+import org.apache.commons.lang.StringUtils;
+
+package org.jboss.bigcommotion.services
+
+rule "Hello World"
+	when
+		$url:String(contains('/'))
+	then
+		System.out.println("HELLO WORLD")
+end

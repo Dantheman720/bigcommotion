@@ -1,13 +1,5 @@
 <h2>Search for Conferences</h2>
-<tabset>
-	<tab heading="A">Some A content</tab>
-	<tab heading="B">Some B content</tab>
-	<tab heading="C">Some C content</tab>
-	<tab>
-		<tab-heading>D</tab-heading>
-		Some D Content
-	</tab>
-</tabset>
+
 
 <div id="confSearchTabContent" class="tab-content">
 	<div class="tab-pane fade" id="home">
@@ -53,15 +45,16 @@
     <div class="control-group">
         <label for="url" class="control-label">Url</label>
         <div class="controls">
-            <input id="url" name="url" type="text" ng-model="search.url" placeholder="Enter the Conference Url"/>
+	    <input id="url" name="url" type="url" ng-model="search.url" placeholder="Enter the Conference Url"/>
         </div>
     </div>
     <div class="control-group">
         <label for="description" class="control-label">Description</label>
         <div class="controls">
-            <textarea id="description" name="description" rows="3" ng-model="search.description" placeholder="Enter the Conference Description"/>
+	    <textarea id="description" name="description" rows="3" ng-model="search.description" placeholder="Enter the Conference Description"></textarea>
         </div>
     </div>
+
     <div class="control-group">
         <label for="requestedBy" class="control-label">Requested By</label>
         <div class="controls">
@@ -134,25 +127,13 @@
     <div class="control-group">
         <label for="notes" class="control-label">Notes</label>
         <div class="controls">
-            <textarea id="notes" name="notes" rows="2" ng-model="search.notes" placeholder="Enter the Conference Notes"/>
+	    <textarea id="notes" name="notes" rows="2" ng-model="search.notes" placeholder="Enter the Conference Notes"></textarea>
         </div>
     </div>
     <div class="control-group">
         <label for="campaign" class="control-label">Campaign</label>
         <div class="controls">
             <input id="campaign" name="campaign" type="text" ng-model="search.campaign" placeholder="Enter the Conference Campaign" />
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="setupTime" class="control-label">Setup Time</label>
-        <div class="controls">
-            <input id="setupTime" name="setupTime" type="datetime" ng-model="search.setupTime" placeholder="Enter the Conference Setup Time" />
-        </div>
-    </div>
-    <div class="control-group">
-        <label for="dismantleTime" class="control-label">Dismantle Time</label>
-        <div class="controls">
-            <input id="dismantleTime" name="dismantleTime" type="datetime" ng-model="search.dismantleTime" placeholder="Enter the Conference Dismantle Time" />
         </div>
     </div>
     <div class="control-group">

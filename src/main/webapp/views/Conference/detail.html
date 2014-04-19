@@ -38,13 +38,13 @@
     <div class="control-group" ng-class="{error: ConferenceForm.url.$invalid}">
         <label for="url" class="control-label">Url</label>
         <div id="urlControls" class="controls">
-            <input id="url" name="url" type="text" ng-model="conference.url" placeholder="Enter the Conference Url"></input>
+	    <input id="url" name="url" type="url" ng-model="conference.url" placeholder="Enter the Conference Url"></input>
         </div>
     </div>
     <div class="control-group" ng-class="{error: ConferenceForm.description.$invalid}">
         <label for="description" class="control-label">Description</label>
         <div id="descriptionControls" class="controls">
-            <input id="description" name="description" type="text" ng-maxlength="1000" ng-model="conference.description" placeholder="Enter the Conference Description"></input>
+	    <textarea rows="4" cols="50" id="description" name="description" type="text" ng-maxlength="1000" ng-model="conference.description" placeholder="Enter the Conference Description"></textarea>
             <span class="help-inline" ng-show="ConferenceForm.description.$error.maxlength">maximum length is 1000</span>
         </div>
     </div>
@@ -181,6 +181,7 @@
     <div class="control-group">
         <div class="controls">
             <button id="saveConference" name="saveConference" class="btn btn-primary" ng-disabled="isClean() || ConferenceForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+			<button id="new" name="newConference" class="btn btn-primary" ng-disabled="!isClean() || ConferenceForm.$invalid" href="#/Conferences/new"><i class="icon-plus-sign">Create Another</i></button>
             <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
             <button id="deleteConference" name="deleteConference" class="btn btn-danger" ng-show="conference.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
         </div>
