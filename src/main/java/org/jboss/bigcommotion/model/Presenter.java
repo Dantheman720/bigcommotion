@@ -76,7 +76,7 @@ public class Presenter implements Serializable
    private String notes;
 
    @Column(length = 512)
-   @Size(max= 512, "Title really has to be less than 512 characters.")
+   @Size(max= 512, message = "Come On! Who is this guy?  Title really has to be less than 512 characters.")
    private String title;
 
    @Column(length = 512)
