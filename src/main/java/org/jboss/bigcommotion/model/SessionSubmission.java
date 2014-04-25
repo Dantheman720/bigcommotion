@@ -1,19 +1,19 @@
 /*
-* JBoss, Home of Professional Open Source
-* Copyright 2009, Red Hat, Inc. and/or its affiliates, and individual contributors
-* by the @authors tag. See the copyright.txt in the distribution for a
-* full listing of individual contributors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-* http://www.apache.org/licenses/LICENSE-2.0
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * JBoss, Home of Professional Open Source
+ * Copyright 2009, Red Hat, Inc. and/or its affiliates, and individual contributors
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jboss.bigcommotion.model;
 
 import javax.persistence.Entity;
@@ -60,6 +60,12 @@ public class SessionSubmission implements Serializable
 
    @ManyToOne
    private Conference conference;
+
+   @Column(length = 1024)
+   private String presentationURL;
+
+   @Column(length = 1024)
+   private String videoURL;
 
    public Conference getConference()
    {
@@ -286,11 +292,35 @@ public class SessionSubmission implements Serializable
       this.thirdPresenter = thirdPresenter;
    }
 
+   public String getPresentationURL()
+   {
+      return this.presentationURL;
+   }
+
+   public void setPresentationURL(final String presentationURL)
+   {
+      this.presentationURL = presentationURL;
+   }
+
+   public String getVideoURL()
+   {
+      return this.videoURL;
+   }
+
+   public void setVideoURL(final String videoURL)
+   {
+      this.videoURL = videoURL;
+   }
+
    @Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";
-      result += "accepted: " + accepted;
+      if (presentationURL != null && !presentationURL.trim().isEmpty())
+         result += "presentationURL: " + presentationURL;
+      if (videoURL != null && !videoURL.trim().isEmpty())
+         result += ", videoURL: " + videoURL;
+      result += ", accepted: " + accepted;
       if (title != null && !title.trim().isEmpty())
          result += ", title: " + title;
       if (description != null && !description.trim().isEmpty())
