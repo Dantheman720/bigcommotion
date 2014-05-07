@@ -29,17 +29,13 @@ public class RuleTester {
     @Produces("application/json")
     public String test()
     {
-//        KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-//        kbuilder.add(ResourceFactory.newClassPathResource("../../../../../../../../org.jboss.bigcommotion.services/google-analtyics-import.drl"), ResourceType.DRL);
-//        KnowledgeBase kbase = kbuilder.newKnowledgeBase();
-//        StatelessKnowledgeSession ksession = kbase.newStatelessKnowledgeSession();
-//        try{
-//            URL url = new URL("http://www.google.com");
-//            ksession.execute(url);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+        kbuilder.add(ResourceFactory.newClassPathResource("../Google-Testing.drl"), ResourceType.DRL);
+        KnowledgeBase kbase = kbuilder.newKnowledgeBase();
+        StatelessKnowledgeSession ksession = kbase.newStatelessKnowledgeSession();
+        String url = "http://www.google.com";
         System.out.println("Test");
+        ksession.execute(url);
         return "Made it!  Did we really?";
     }
 

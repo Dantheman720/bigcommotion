@@ -1,0 +1,19 @@
+//created on: May 7, 2014
+package rules
+
+//list any import classes here.
+
+import java.lang.String
+import org.apache.commons.lang.StringUtils;
+
+//declare any global variables here
+
+
+
+
+rule "Hello World"
+	when
+		$url:String(contains("/"))
+	then
+		System.out.println("HELLO WORLD");
+end
