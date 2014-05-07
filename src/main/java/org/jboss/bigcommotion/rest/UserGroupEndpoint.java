@@ -75,4 +75,13 @@ public class UserGroupEndpoint
       entity = em.merge(entity);
       return Response.noContent().build();
    }
+   
+   @GET
+   @Path("/what")
+   @Produces("application/json")
+   public String test()
+   {
+      return "Made it!  Did we really?";
+   }
+
 }

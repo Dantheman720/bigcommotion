@@ -58,25 +58,53 @@
       <artifactId>jboss-servlet-api_3.0_spec</artifactId>
       <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>com.wordnik</groupId>
+          <artifactId>swagger-jaxrs_2.10</artifactId>
+          <version>1.3.1</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.drools</groupId>
+          <artifactId>drools-core</artifactId>
+          <version>5.5.0.Final</version>
+      </dependency>
+      <dependency>
+          <groupId>org.drools</groupId>
+          <artifactId>drools-compiler</artifactId>
+          <version>5.5.0.Final</version>
+      </dependency>
+      <dependency>
+          <groupId>org.drools</groupId>
+          <artifactId>drools-decisiontables</artifactId>
+          <version>5.5.0.Final</version>
+      </dependency>
+
   </dependencies>
-  <repositories>
-    <repository>
-      <id>JBOSS_NEXUS</id>
-      <url>http://repository.jboss.org/nexus/content/groups/public</url>
-    </repository>
-	<repository>
-		<id>JBOSS_ORG_NEXUS</id>
-		<name>JBoss.org Nexus Maven Repository</name>
-		<url>https://repository.jboss.org/nexus/content/repositories</url>
-		<releases>
-			<enabled>true</enabled>
-			<updatePolicy>never</updatePolicy>
-		</releases>
-		<snapshots>
-			<enabled>false</enabled>
-		</snapshots>
-	</repository>
-  </repositories>
+	<repositories>
+		<repository>
+			<id>eap</id>
+			<url>http://maven.repository.redhat.com/techpreview/all</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>eap</id>
+			<url>http://maven.repository.redhat.com/techpreview/all</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
   <build>
     <finalName>BigCommotion</finalName>
     <plugins>
