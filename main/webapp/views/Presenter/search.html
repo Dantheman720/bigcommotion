@@ -1,0 +1,90 @@
+<h2>Search for Presenters</h2>
+<form id="PresenterSearch" class="form-horizontal">
+    <div class="control-group">
+        <label for="firstName" class="control-label">First Name</label>
+        <div class="controls">
+            <input id="firstName" name="firstName" type="text" ng-model="search.firstName" placeholder="Enter the Presenter First Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="lastName" class="control-label">Last Name</label>
+        <div class="controls">
+            <input id="lastName" name="lastName" type="text" ng-model="search.lastName" placeholder="Enter the Presenter Last Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="biography" class="control-label">Biography</label>
+        <div class="controls">
+            <input id="biography" name="biography" type="text" ng-model="search.biography" placeholder="Enter the Presenter Biography"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="twitterHandle" class="control-label">Twitter Handle</label>
+        <div class="controls">
+            <input id="twitterHandle" name="twitterHandle" type="text" ng-model="search.twitterHandle" placeholder="Enter the Presenter Twitter Handle"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="imageUrl" class="control-label">Image Url</label>
+        <div class="controls">
+            <input id="imageUrl" name="imageUrl" type="text" ng-model="search.imageUrl" placeholder="Enter the Presenter Image Url"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="notes" class="control-label">Notes</label>
+        <div class="controls">
+            <input id="notes" name="notes" type="text" ng-model="search.notes" placeholder="Enter the Presenter Notes"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="fullName" class="control-label">Full Name</label>
+        <div class="controls">
+            <input id="fullName" name="fullName" type="text" ng-model="search.fullName" placeholder="Enter the Presenter Full Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><i class="icon-search icon-white"></i> Search</a>
+            <a id="Create" name="Create" class="btn" href="#/Presenters/new"><i class="icon-plus-sign"></i> Create New</a>
+        </div>
+    </div>
+</form>
+<div id="search-results">
+    <table class="table table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Biography</th>
+                <th>Twitter Handle</th>
+                <th>Image Url</th>
+                <th>Notes</th>
+                <th>Full Name</th>
+            </tr>
+        </thead>
+        <tbody id="search-results-body">
+            <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.firstName}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.lastName}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.biography}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.twitterHandle}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.imageUrl}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.notes}}</a></td>
+                <td><a href="#/Presenters/edit/{{result.id}}">{{result.fullName}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <li ng-class="{disabled:currentPage == 0}">
+                <a id="prev" href ng-click="previous()">??</a>
+            </li>
+            <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+                <a id="next" href ng-click="next()">??</a>
+            </li>
+        </ul>
+    </div>
+</div>

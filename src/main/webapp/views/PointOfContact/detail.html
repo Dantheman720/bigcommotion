@@ -1,0 +1,75 @@
+<form id="PointOfContactForm" name="PointOfContactForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.fullName.$invalid}">
+        <label for="fullName" class="control-label">Full Name</label>
+        <div id="fullNameControls" class="controls">
+            <input id="fullName" name="fullName" type="text" ng-model="pointOfContact.fullName" placeholder="Enter the PointOfContact Full Name"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.firstName.$invalid}">
+        <label for="firstName" class="control-label">First Name</label>
+        <div id="firstNameControls" class="controls">
+            <input id="firstName" name="firstName" type="text" required ng-model="pointOfContact.firstName" placeholder="Enter the PointOfContact First Name"></input>
+            <span class="help-inline" ng-show="PointOfContactForm.firstName.$error.required">required</span> 
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.lastName.$invalid}">
+        <label for="lastName" class="control-label">Last Name</label>
+        <div id="lastNameControls" class="controls">
+            <input id="lastName" name="lastName" type="text" required ng-model="pointOfContact.lastName" placeholder="Enter the PointOfContact Last Name"></input>
+            <span class="help-inline" ng-show="PointOfContactForm.lastName.$error.required">required</span> 
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.emailAddress.$invalid}">
+        <label for="emailAddress" class="control-label">Email Address</label>
+        <div id="emailAddressControls" class="controls">
+            <input id="emailAddress" name="emailAddress" type="text" required ng-model="pointOfContact.emailAddress" placeholder="Enter the PointOfContact Email Address"></input>
+            <span class="help-inline" ng-show="PointOfContactForm.emailAddress.$error.required">required</span> 
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.mobileNumber.$invalid}">
+        <label for="mobileNumber" class="control-label">Mobile Number</label>
+        <div id="mobileNumberControls" class="controls">
+            <input id="mobileNumber" name="mobileNumber" type="text" ng-model="pointOfContact.mobileNumber" placeholder="Enter the PointOfContact Mobile Number"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.officeNumber.$invalid}">
+        <label for="officeNumber" class="control-label">Office Number</label>
+        <div id="officeNumberControls" class="controls">
+            <input id="officeNumber" name="officeNumber" type="text" ng-model="pointOfContact.officeNumber" placeholder="Enter the PointOfContact Office Number"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.twitterHandle.$invalid}">
+        <label for="twitterHandle" class="control-label">Twitter Handle</label>
+        <div id="twitterHandleControls" class="controls">
+            <input id="twitterHandle" name="twitterHandle" type="text" ng-model="pointOfContact.twitterHandle" placeholder="Enter the PointOfContact Twitter Handle"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.skypeUsername.$invalid}">
+        <label for="skypeUsername" class="control-label">Skype Username</label>
+        <div id="skypeUsernameControls" class="controls">
+            <input id="skypeUsername" name="skypeUsername" type="text" ng-model="pointOfContact.skypeUsername" placeholder="Enter the PointOfContact Skype Username"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.organizationName.$invalid}">
+        <label for="organizationName" class="control-label">Organization Name</label>
+        <div id="organizationNameControls" class="controls">
+            <input id="organizationName" name="organizationName" type="text" ng-model="pointOfContact.organizationName" placeholder="Enter the PointOfContact Organization Name"></input>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: PointOfContactForm.isPerson.$invalid}">
+        <label for="isPerson" class="control-label">Is Person</label>
+        <div id="isPersonControls" class="controls">
+            <input id="isPerson" name="isPerson" type="checkbox" ng-model="pointOfContact.isPerson" placeholder="Enter the PointOfContact Is Person"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="savePointOfContact" name="savePointOfContact" class="btn btn-primary" ng-disabled="isClean() || PointOfContactForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deletePointOfContact" name="deletePointOfContact" class="btn btn-danger" ng-show="pointOfContact.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>

@@ -1,0 +1,114 @@
+<h2>Search for PointOfContacts</h2>
+<form id="PointOfContactSearch" class="form-horizontal">
+    <div class="control-group">
+        <label for="fullName" class="control-label">Full Name</label>
+        <div class="controls">
+            <input id="fullName" name="fullName" type="text" ng-model="search.fullName" placeholder="Enter the PointOfContact Full Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="firstName" class="control-label">First Name</label>
+        <div class="controls">
+            <input id="firstName" name="firstName" type="text" ng-model="search.firstName" placeholder="Enter the PointOfContact First Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="lastName" class="control-label">Last Name</label>
+        <div class="controls">
+            <input id="lastName" name="lastName" type="text" ng-model="search.lastName" placeholder="Enter the PointOfContact Last Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="emailAddress" class="control-label">Email Address</label>
+        <div class="controls">
+            <input id="emailAddress" name="emailAddress" type="text" ng-model="search.emailAddress" placeholder="Enter the PointOfContact Email Address"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="mobileNumber" class="control-label">Mobile Number</label>
+        <div class="controls">
+            <input id="mobileNumber" name="mobileNumber" type="text" ng-model="search.mobileNumber" placeholder="Enter the PointOfContact Mobile Number"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="officeNumber" class="control-label">Office Number</label>
+        <div class="controls">
+            <input id="officeNumber" name="officeNumber" type="text" ng-model="search.officeNumber" placeholder="Enter the PointOfContact Office Number"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="twitterHandle" class="control-label">Twitter Handle</label>
+        <div class="controls">
+            <input id="twitterHandle" name="twitterHandle" type="text" ng-model="search.twitterHandle" placeholder="Enter the PointOfContact Twitter Handle"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="skypeUsername" class="control-label">Skype Username</label>
+        <div class="controls">
+            <input id="skypeUsername" name="skypeUsername" type="text" ng-model="search.skypeUsername" placeholder="Enter the PointOfContact Skype Username"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="organizationName" class="control-label">Organization Name</label>
+        <div class="controls">
+            <input id="organizationName" name="organizationName" type="text" ng-model="search.organizationName" placeholder="Enter the PointOfContact Organization Name"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <label for="isPerson" class="control-label">Is Person</label>
+        <div class="controls">
+            <input id="isPerson" name="isPerson" type="text" ng-model="search.isPerson" placeholder="Enter the PointOfContact Is Person"></input>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><i class="icon-search icon-white"></i> Search</a>
+            <a id="Create" name="Create" class="btn" href="#/PointOfContacts/new"><i class="icon-plus-sign"></i> Create New</a>
+        </div>
+    </div>
+</form>
+<div id="search-results">
+    <table class="table table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Mobile Number</th>
+                <th>Office Number</th>
+                <th>Twitter Handle</th>
+                <th>Skype Username</th>
+                <th>Organization Name</th>
+                <th>Is Person</th>
+            </tr>
+        </thead>
+        <tbody id="search-results-body">
+            <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.fullName}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.firstName}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.lastName}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.emailAddress}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.mobileNumber}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.officeNumber}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.twitterHandle}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.skypeUsername}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.organizationName}}</a></td>
+                <td><a href="#/PointOfContacts/edit/{{result.id}}">{{result.isPerson}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <li ng-class="{disabled:currentPage == 0}">
+                <a id="prev" href ng-click="previous()">??</a>
+            </li>
+            <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+                <a id="next" href ng-click="next()">??</a>
+            </li>
+        </ul>
+    </div>
+</div>

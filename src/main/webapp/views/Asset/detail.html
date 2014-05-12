@@ -1,0 +1,88 @@
+<form id="AssetForm" name="AssetForm" class="form-horizontal">
+    <div ng-show="displayError" class="alert alert-error">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.name.$invalid}">
+        <label for="name" class="control-label">Name</label>
+        <div id="nameControls" class="controls">
+            <input id="name" name="name" type="text" required ng-maxlength="256" ng-minlength="2" ng-model="asset.name" placeholder="Enter the Asset Name"></input>
+            <span class="help-inline" ng-show="AssetForm.name.$error.required">required</span> 
+            <span class="help-inline" ng-show="AssetForm.name.$error.minlength">minimum length is 2</span>
+            <span class="help-inline" ng-show="AssetForm.name.$error.maxlength">maximum length is 256</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.existsToday.$invalid}">
+        <label for="existsToday" class="control-label">Exists Today</label>
+        <div id="existsTodayControls" class="controls">
+            <input id="existsToday" name="existsToday" type="checkbox" required ng-model="asset.existsToday" placeholder="Enter the Asset Exists Today"></input>
+            <span class="help-inline" ng-show="AssetForm.existsToday.$error.required">required</span> 
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.url.$invalid}">
+        <label for="url" class="control-label">Url</label>
+        <div id="urlControls" class="controls">
+            <input id="url" name="url" type="text" ng-maxlength="512" ng-minlength="8" ng-model="asset.url" placeholder="Enter the Asset Url"></input>
+            <span class="help-inline" ng-show="AssetForm.url.$error.minlength">minimum length is 8</span>
+            <span class="help-inline" ng-show="AssetForm.url.$error.maxlength">maximum length is 512</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.owner.$invalid}">
+        <label for="owner" class="control-label">Owner</label>
+        <div id="ownerControls" class="controls">
+            <input id="owner" name="owner" type="text" ng-maxlength="50" ng-minlength="5" ng-model="asset.owner" placeholder="Enter the Asset Owner"></input>
+            <span class="help-inline" ng-show="AssetForm.owner.$error.minlength">minimum length is 5</span>
+            <span class="help-inline" ng-show="AssetForm.owner.$error.maxlength">maximum length is 50</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.frequencyOfUpdates.$invalid}">
+        <label for="frequencyOfUpdates" class="control-label">Frequency Of Updates</label>
+        <div id="frequencyOfUpdatesControls" class="controls">
+        <select id="frequencyOfUpdates" name="frequencyOfUpdates" ng-model="asset.frequencyOfUpdates" ng-options="f for f in frequencyOfUpdatesList"  >
+            <option value="">Choose a Frequency Of Updates</option>
+        </select>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.description.$invalid}">
+        <label for="description" class="control-label">Description</label>
+        <div id="descriptionControls" class="controls">
+            <input id="description" name="description" type="text" ng-maxlength="1024" ng-model="asset.description" placeholder="Enter the Asset Description"></input>
+            <span class="help-inline" ng-show="AssetForm.description.$error.maxlength">maximum length is 1024</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.callToAction.$invalid}">
+        <label for="callToAction" class="control-label">Call To Action</label>
+        <div id="callToActionControls" class="controls">
+            <input id="callToAction" name="callToAction" type="text" ng-maxlength="256" ng-model="asset.callToAction" placeholder="Enter the Asset Call To Action"></input>
+            <span class="help-inline" ng-show="AssetForm.callToAction.$error.maxlength">maximum length is 256</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.callToAction2.$invalid}">
+        <label for="callToAction2" class="control-label">Call To Action 2</label>
+        <div id="callToAction2Controls" class="controls">
+            <input id="callToAction2" name="callToAction2" type="text" ng-maxlength="256" ng-model="asset.callToAction2" placeholder="Enter the Asset Call To Action 2"></input>
+            <span class="help-inline" ng-show="AssetForm.callToAction2.$error.maxlength">maximum length is 256</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.callToAction3.$invalid}">
+        <label for="callToAction3" class="control-label">Call To Action 3</label>
+        <div id="callToAction3Controls" class="controls">
+            <input id="callToAction3" name="callToAction3" type="text" ng-maxlength="256" ng-model="asset.callToAction3" placeholder="Enter the Asset Call To Action 3"></input>
+            <span class="help-inline" ng-show="AssetForm.callToAction3.$error.maxlength">maximum length is 256</span>
+        </div>
+    </div>
+    <div class="control-group" ng-class="{error: AssetForm.note.$invalid}">
+        <label for="note" class="control-label">Note</label>
+        <div id="noteControls" class="controls">
+            <input id="note" name="note" type="text" ng-maxlength="1024" ng-minlength="8" ng-model="asset.note" placeholder="Enter the Asset Note"></input>
+            <span class="help-inline" ng-show="AssetForm.note.$error.minlength">minimum length is 8</span>
+            <span class="help-inline" ng-show="AssetForm.note.$error.maxlength">maximum length is 1024</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button id="saveAsset" name="saveAsset" class="btn btn-primary" ng-disabled="isClean() || AssetForm.$invalid" ng-click="save()"><i class="icon-ok-sign icon-white"></i> Save</button>
+            <button id="cancel" name="cancel" class="btn" ng-click="cancel()"><i class="icon-remove-sign"></i> Cancel</button>
+            <button id="deleteAsset" name="deleteAsset" class="btn btn-danger" ng-show="asset.id" ng-click="remove()"><i class="icon-trash icon-white"></i> Delete</button>
+        </div>
+    <div>
+</form>
